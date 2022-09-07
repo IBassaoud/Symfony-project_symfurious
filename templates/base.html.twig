@@ -68,10 +68,11 @@
 					<a class="text-sm text-blue-600 hover:text-gray-500" href="#">Championship</a>
 				</li>
 			</ul>
-			<a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" href="{{ path('app_login') }}">Sign In</a>
-			<a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" href="{{ path('app_register') }}">Sign up</a>
                 {% if app.user %}
                     <a href="{{ path('app_logout') }}" class="hidden lg:inline-block py-2 px-6 ml-4 bg-red-500 hover:bg-red-700 text-sm text-white font-bold rounded-xl transition duration-200">Logout</a>
+                {% else %}
+                    <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" href="{{ path('app_login') }}">Sign In</a>
+                    <a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" href="{{ path('app_register') }}">Sign up</a>
                 {% endif %}
 		</nav>
 		<div class="navbar-menu relative z-50 hidden">
