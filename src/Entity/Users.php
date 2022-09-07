@@ -16,7 +16,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
 {
     public function __construct()
     {
-        if ($this->getCreatedAt() == null){
+        if ($this->getCreatedAt() == null) {
             $this->setCreatedAt(new \DateTime('now'));
         } else {
             $this->setUpdatedAt(new \DateTime('now'));
@@ -153,7 +153,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function eraseCredentials()
     {
         // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
+        // $this->password = null;
     }
 
     public function getFirstname(): ?string
