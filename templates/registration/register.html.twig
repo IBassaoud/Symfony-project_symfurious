@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="min-w-screen min-h-screen bg-slate-200 flex items-center justify-center px-5 py-5">
+        <div class="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width:1000px">
+            <div class="md:flex w-full">
+                <div class="hidden md:flex justify-center md:items-center w-1/2 bg-indigo-500 py-10 px-10">
+                    <img src="{{ asset('images/register_pic.avif') }}" class="sm:h-[32rem]">
+                </div>
+                <div class="w-full md:w-1/2 py-10 px-5 md:px-10">
+                    <div class="text-center mb-10">
+                        <h1 class="font-bold text-3xl text-gray-900">REGISTER</h1>
+                        <p>Enter your information to register</p>
+                    </div>
+    
+                        {{ form_start(registrationForm) }}
+                         <div class="flex -mx-3">
+                        <div class="w-1/2 px-3 mb-5">
+                            <label for="" class="text-xs font-semibold px-1">First name</label>
+                            <div class="flex">
+                                <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"></div>
+                                {{ form_widget(registrationForm.firstname, { 'attr' : {'class': 'w-full -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500'}} )}}
+                            </div>
+                        </div>
+                        <div class="w-1/2 px-3 mb-5">
+                            <label for="" class="text-xs font-semibold px-1">Last name</label>
+                            <div class="flex">
+                                <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
+                                {{ form_widget(registrationForm.lastname, { 'attr' : {'class': 'w-full -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500'}} )}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex -mx-3">
+                        <div class="w-full px-3 mb-5">
+                            <label for="" class="text-xs font-semibold px-1">Email</label>
+                            <div class="flex">
+                                <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
+                                {{ form_widget(registrationForm.email, { 'attr' : {'class': 'w-full -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500'}} )}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex -mx-3 mb-2">
+                        <div class="w-full px-3">
+                            <label for="" class="text-xs font-semibold px-1">Password</label>
+                            <div class="flex">
+                                <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-lock-outline text-gray-400 text-lg"></i></div>
+                                {{ form_widget(registrationForm.plainPassword, { 'attr' : {'class': 'w-full -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500'}} ) }}
+                            </div>
+                        </div>
+                        <div class="w-full px-3 mb-2">
+                            <label for="password_confirm" class="text-xs font-semibold px-1">Confirm password</label>
+                            <div class="flex">
+                                <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-lock-outline text-gray-400 text-lg"></i></div>
+                                {{ form_widget(registrationForm.passwordConfirm, { 'attr' : {'class': 'w-full -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500'}} ) }}
+                            </div>
+                        </div>
+                    </div>
+                     <div class="flex items-center justify-between mb-8">
+                        <div class="flex items-center">
+                            {{ form_widget(registrationForm.agreeTerms, { 'attr': {'class': 'h-4 w-4 bg-blue-500 focus:ring-blue-400 border-gray-300 rounded'} }) }}
+                            <label for="agreeTerms" class="ml-2 block text-sm text-gray-900">
+                            Agree terms
+                            
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="flex -mx-3">
+                        <div class="w-full px-3 mb-5">
+                            <button type="submit" class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">REGISTER</button>
+                        </div>
+                    </div>
+                        {{ form_end(registrationForm) }}
+                 </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

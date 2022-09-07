@@ -1,0 +1,8 @@
+/*
+Indication à TailwindCSS de générer 3 couches (layers) de CSS:
+- La couche base correspond à une série de “resets” en CSS qui permet de tout remettre à zéro pour partir sur de bonnes bases et assurer une cohérence pour tous les navigateurs;
+- La couche components génère l’unique composant de Tailwind à ce stade (peut être qu’il y en aura plusieurs à l’avenir), qui est la classe .container, utile pour rendre le contenu responsive;
+- La couche utilities génère toutes les classes utilitaires de Tailwind. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
