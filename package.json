@@ -1,0 +1,1 @@
+{"scripts":{"dev-server":"encore dev-server","dev":"encore dev","watch":"encore dev --watch","build":"encore production --progress"},"devDependencies":{"@symfony/webpack-encore":"^3.1.0","autoprefixer":"^10.4.8","postcss":"^8.4.16","postcss-loader":"^7.0.1","tailwindcss":"^3.1.8","webpack-notifier":"^1.15.0"}}
