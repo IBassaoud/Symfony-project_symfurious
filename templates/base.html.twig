@@ -9,7 +9,8 @@
 		<link
 		rel="icon" href="{{ asset('images/fast_symfurious.jpeg') }}">
 		<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css');</style>
-
+		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('app') }}
@@ -69,6 +70,18 @@
 				<li>
 					<a class="text-sm text-blue-600 hover:text-gray-500" href="#">Championship</a>
 				</li>
+				{% if app.user %}
+					{% if "ROLE_ADMIN" in app.user.roles %}
+					<li class="text-blue-300">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewbox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
+						</svg>
+					</li>
+					<li>
+						<a class="text-sm text-blue-600 hover:text-gray-500" href="{{ path('admins') }}">Dashboard</a>
+					</li>
+					{% endif %}
+				 {% endif %}
 			</ul>
                 {% if app.user %}
                     <a href="{{ path('app_logout') }}" class="hidden lg:inline-block py-2 px-6 ml-4 bg-red-500 hover:bg-red-700 text-sm text-white font-bold rounded-xl transition duration-200">Logout</a>
@@ -107,6 +120,13 @@
 						<li class="mb-1">
 							<a class="block p-4 text-sm font-semibold text-blue-600 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Championship</a>
 						</li>
+						{% if app.user %}
+							{% if "ROLE_ADMIN" in app.user.roles %}
+							<li class="mb-1">
+								<a class="block p-4 text-sm font-semibold text-blue-600 hover:bg-blue-50 hover:text-blue-600 rounded" href="{{ path('admins') }}">Dashboard</a>
+							</li>
+							{% endif %}
+						{% endif %}
 					</ul>
 				</div>
 				<div class="mt-auto">
@@ -124,6 +144,7 @@
 				</div>
 			</nav>
 		</div>
+		{% block sidebar %}{% endblock %}
 		{% block body %}{% endblock %}
 	</body>
 </html>

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Users
+{% endblock %}
+
+{% block sidebar %}
+{% include "sidebar.html.twig" %}
+{% endblock %}
+
+{% block body %}
+	<h1>Create new Users</h1>
+
+	{{ include('admins/users/_form.html.twig') }}
+
+	<a href="{{ path('admins_users') }}">back to list</a>
+{% endblock %}

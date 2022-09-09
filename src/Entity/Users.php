@@ -18,9 +18,12 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if ($this->getCreatedAt() == null) {
             $this->setCreatedAt(new \DateTime('now'));
-        } else {
+        } 
+
+        if ($this->getCreatedAt() != null) {
             $this->setUpdatedAt(new \DateTime('now'));
-        }
+        } 
+
     }
 
 

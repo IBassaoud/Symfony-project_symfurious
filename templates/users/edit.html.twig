@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile
+{% endblock %}
+
+{% block body %}
+<div class="min-w-screen min-h-screen bg-slate-200 flex items-center justify-center px-5 py-5">
+
+	<div class="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width:600px">
+		<div class="md:flex w-full">
+			
+			<div class="w-full py-10 px-5 md:px-10">
+				<div class="w-full px-3 mb-5 right-0">
+					<div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+						<a href="{{ path('users_index') }}">
+							<i class="fa fa-arrow-left"></i>
+						</a>
+					</div>
+				</div>
+				 
+				<div class="text-center mb-4">
+					<h1 class="font-bold text-3xl text-gray-900 uppercase">Profile</h1>
+					<p>Update your personal informations</p>
+				</div>
+				{{ form_start(form) }}
+					<div class="flex -mx-3">
+						<div class="w-1/2 px-3 mb-5">
+							<label for="" class="text-xs font-semibold px-1">First name</label>
+							<div class="flex">
+								<div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+									<i class="mdi mdi-account-outline text-gray-400 text-lg"></i>
+								</div>
+								{{ form_widget(form.firstname, { 'attr' : {'class': 'w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500'}} ) }}
+							</div>
+						</div>
+						<div class="w-1/2 px-3 mb-5">
+							<label for="" class="text-xs font-semibold px-1">Last name</label>
+							<div class="flex">
+								<div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+									<i class="mdi mdi-account-outline text-gray-400 text-lg"></i>
+								</div>
+								{{ form_widget(form.lastname, { 'attr' : {'class': 'w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500'}} ) }}
+							</div>
+						</div>
+					</div>
+					
+					<div class="flex -mx-3">
+						<div class="w-full px-3 mb-5">
+							<label for="" class="text-xs font-semibold px-1">Email</label>
+							<div class="flex">
+								<div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+									<i class="mdi mdi-email-outline text-gray-400 text-lg"></i>
+								</div>
+								{{ form_widget(form.email, { 'attr' : {'class': 'w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500'}} ) }}
+							</div>
+						</div>
+					</div>
+					<div class='text-center text-red-500 text-1xl font-bold mb-4'>
+                        {{ form_errors(form.email) }}
+					</div>
+
+					
+
+					<div class="flex -mx-3">
+						<div class="w-full px-3 mb-5">
+							<button type="submit" class="uppercase block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">update</button>
+						</div>
+					</div>
+				{{ form_end(form) }}
+
+				<div class="flex -mx-3 sticky top-[100vh]">
+					<div class="w-1/2 px-3">
+						<label for="" class="text-xs font-semibold px-1">Registration date</label>
+						<div class="flex text-xs font-semibold px-1">
+							{# <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+								<i class="mdi mdi-account-outline text-gray-400 text-lg"></i>
+							</div> #}
+							{{ user.createdAt ? user.createdAt|date('F Y') : ''  }}			
+						</div>
+					</div>
+					<div class="w-1/2 px-3">
+						<label for="" class="text-xs font-semibold px-1">Last modification</label>
+						<div class="flex text-xs font-semibold px-1">
+							{{ user.updatedAt ? user.updatedAt|date('F Y') : '' }}
+						</div>
+					</div>
+
+					<div class="w-[3.5rem] px-3 transform hover:text-red-500 hover:scale-110">
+						<a href="{{ path('users_delete', {'id': user.id}) }}">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 22 22" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+{% endblock %}
